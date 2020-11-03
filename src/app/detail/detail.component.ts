@@ -13,7 +13,7 @@ export class DetailComponent {
       name: 'product 1',
       desciption: 'desciption 1',
       image: 'https://via.placeholder.com/200x150',
-      price: 200,
+      price: 200000,
       quantity: 5,
     },
     {
@@ -21,7 +21,7 @@ export class DetailComponent {
       name: 'product 2',
       desciption: 'desciption 2',
       image: 'https://via.placeholder.com/200x150',
-      price: 500,
+      price: 500000,
       quantity: 100,
     },
   ];

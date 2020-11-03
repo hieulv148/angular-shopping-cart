@@ -9,7 +9,7 @@
       <div class="detail">
         <div class="name"><a href="#">{{item.name}}</a></div>
         <div class="description">{{item.desciption}}</div>
-        <div class="price">${{item.price}}</div>
+        <div class="price">{{item.price | currency: "VND"}}</div>
       </div>
     </div>
 
