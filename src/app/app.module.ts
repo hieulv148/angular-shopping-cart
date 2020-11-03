@@ -11,12 +11,10 @@ import { PromotionComponent } from './promotion/promotion.component';
     AppComponent,
     HeaderComponent,
     DetailComponent,
-    PromotionComponent
+    PromotionComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

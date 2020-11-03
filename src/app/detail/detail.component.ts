@@ -28,9 +28,12 @@ export class DetailComponent {
 
   removeProduct(productId: string) {
     const index = this.products.findIndex(
-      (product) => (product.id === productId)
+      (product) => product.id === productId
     );
-    if (index !== -1) {
+    if (
+      index !== -1 &&
+      confirm('Bạn có chắc chắn muốn xóa item: ' + productId)
+    ) {
       this.products.splice(index);
     }
   }
