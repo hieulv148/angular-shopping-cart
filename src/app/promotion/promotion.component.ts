@@ -10,13 +10,10 @@ export class PromotionComponent {
   @Input() products: Product[];
 
   getTotalSummary() {
-    console.log('this.products', this.products);
-    let subTotal: number;
+    let subTotal = 0;
     for (let i = 0; i < this.products.length; i++) {
-      // const item = this.products[i];
       subTotal += this.products[i].price * this.products[i].quantity;
     }
-    console.log('subTotal', subTotal);
     return subTotal;
   }
 }
