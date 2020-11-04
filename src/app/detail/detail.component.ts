@@ -34,7 +34,7 @@ export class DetailComponent {
       index !== -1 &&
       confirm('Bạn có chắc chắn muốn xóa item: ' + productId)
     ) {
-      this.products.splice(index);
+      this.products.splice(index,1);
     }
   }
 }

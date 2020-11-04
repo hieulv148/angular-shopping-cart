@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { DetailComponent } from './detail/detail.component';
 import { PromotionComponent } from './promotion/promotion.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { PromotionComponent } from './promotion/promotion.component';
     DetailComponent,
     PromotionComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule ],
   providers: [],
   bootstrap: [AppComponent],
 })
