@@ -1,4 +1,3 @@
-<app-header [products]="products"></app-header>
 <section class="container">
   <ul class="products">
     <li class="row" *ngFor="let item of products">
@@ -12,7 +11,7 @@
           <div class="name">
             <a href="#">{{ item.name }}</a>
           </div>
-          <div class="description">{{ item.desciption }}</div>
+          <div class="description">{{ item.description }}</div>
           <div class="price">{{ item.price | currency: "VND" }}</div>
         </div>
       </div>
@@ -23,7 +22,8 @@
             type="number"
             class="quantity"
             step="1"
-            [(ngModel)]="item.quantity"
+            [value]="item.quantity"
+            (input)= "updateQuantity(item.id,$event.target.value)"
           />
         </div>
 
@@ -48,7 +48,4 @@
       </div>
     </li>
   </ul>
-</section>
-<section class="container">
-  <app-promotion [products]="products"></app-promotion>
 </section>

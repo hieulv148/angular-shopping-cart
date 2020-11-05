@@ -1,5 +1,5 @@
 import { Product } from './../product.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-detail',
@@ -7,34 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail.component.css'],
 })
 export class DetailComponent {
-  products: Product[] = [
-    {
-      id: '1',
-      name: 'product 1',
-      desciption: 'desciption 1',
-      image: 'https://via.placeholder.com/200x150',
-      price: 200000,
-      quantity: 5,
-    },
-    {
-      id: '2',
-      name: 'product 2',
-      desciption: 'desciption 2',
-      image: 'https://via.placeholder.com/200x150',
-      price: 500000,
-      quantity: 100,
-    },
-  ];
+  @Input() products: Product[];
+  @Output() onRemoveProduct = new EventEmitter();
+  @Output() onInputQuantity = new EventEmitter();
 
   removeProduct(productId: string) {
-    const index = this.products.findIndex(
-      (product) => product.id === productId
-    );
-    if (
-      index !== -1 &&
-      confirm('Bạn có chắc chắn muốn xóa item: ' + productId)
-    ) {
-      this.products.splice(index,1);
-    }
+    this.onRemoveProduct.emit(productId);
+  }
+  updateQuantity(productId : string, quantity : string){
+    let product = {"id": productId,"quantity": quantity};
+    this.onInputQuantity.emit(product);
   }
 }

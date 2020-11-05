@@ -1,5 +1,5 @@
 import { Product } from './../product.model';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-promotion',
@@ -7,13 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./promotion.component.css'],
 })
 export class PromotionComponent {
-  @Input() products: Product[];
+  @Input() subTotal: number;
+  @Output() onCheckPromotion = new EventEmitter();
 
-  getTotalSummary() {
-    let subTotal = 0;
-    for (let i = 0; i < this.products.length; i++) {
-      subTotal += this.products[i].price * this.products[i].quantity;
-    }
-    return subTotal;
+  checkPromotion(promoCode){
+    this.onCheckPromotion.emit(promoCode);
   }
 }

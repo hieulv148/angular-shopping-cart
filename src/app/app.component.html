@@ -1,3 +1,7 @@
 <main>
-  <app-detail></app-detail>
+  <app-header [totalItems]="totalItems"></app-header>
+
+  <app-detail [products]="products" (onRemoveProduct)="removeProduct($event)" (onInputQuantity)="updateProduct($event)"></app-detail>
+
+  <app-promotion [subTotal]="subTotal" *ngIf="products.length > 0"></app-promotion>
 </main>

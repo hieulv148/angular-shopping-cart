@@ -1,25 +1,25 @@
-<div class="promotion">
-  <label for="promo-code">Have A Promo Code?</label>
-  <input type="text" id="promo-code" /> <button type="button"></button>
-</div>
+<section class="container">
+  <div class="promotion">
+    <label for="promo-code">Have A Promo Code?</label>
+    <input #promoCode (keyup.enter)="checkPromotion(promoCode.value)" type="text" id="promo-code" /> <button type="button" (click)="checkPromotion(promoCode.value)"></button>
+  </div>
 
-<div class="summary">
-  <ul>
-    <li>
-      Subtotal <span>{{ getTotalSummary() | currency: "VND" }}</span>
-    </li>
-    <li>
-      Tax <span>{{ getTotalSummary() * 0.1 | currency: "VND" }}</span>
-    </li>
-    <li class="total">
-      Total
-      <span>{{
-        getTotalSummary() + getTotalSummary() * 0.1 | currency: "VND"
-      }}</span>
-    </li>
-  </ul>
-</div>
+  <div class="summary">
+    <ul>
+      <li>
+        Subtotal <span>{{ subTotal | currency: "VND" }}</span>
+      </li>
+      <li>
+        Tax <span>{{ subTotal * 0.1 | currency: "VND" }}</span>
+      </li>
+      <li class="total">
+        Total
+        <span>{{ subTotal + subTotal * 0.1 | currency: "VND" }}</span>
+      </li>
+    </ul>
+  </div>
 
-<div class="checkout">
-  <button type="button">Check Out</button>
-</div>
+  <div class="checkout">
+    <button type="button">Check Out</button>
+  </div>
+</section>
