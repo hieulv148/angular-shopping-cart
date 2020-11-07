@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { DetailComponent } from './detail/detail.component';
 import { PromotionComponent } from './promotion/promotion.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { FormsModule } from '@angular/forms';
     DetailComponent,
     PromotionComponent,
   ],
-  imports: [BrowserModule, FormsModule ],
+  imports: [BrowserModule, FormsModule, BrowserAnimationsModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

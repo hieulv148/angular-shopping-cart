@@ -47,7 +47,4 @@ export class ProductService {
     const index = this.products.findIndex((pro) => pro.id === product.id);
     this.products[index].quantity = parseInt(product.quantity, 10);
   }
-  checkPromo(promoCode){
-    alert("Ban da nhap promocode:"+ promoCode);
-  }
 }

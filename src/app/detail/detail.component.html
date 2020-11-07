@@ -1,6 +1,6 @@
 <section class="container">
   <ul class="products">
-    <li class="row" *ngFor="let item of products">
+    <li class="row" *ngFor="let item of products; let index = index">
       <div class="col left">
         <div class="thumbnail">
           <a href="#">
@@ -12,7 +12,7 @@
             <a href="#">{{ item.name }}</a>
           </div>
           <div class="description">{{ item.description }}</div>
-          <div class="price">{{ item.price | currency: "VND" }}</div>
+          <div class="price">{{ item.price | currency: "VND":"code" }}</div>
         </div>
       </div>
 
@@ -22,11 +22,15 @@
             type="number"
             class="quantity"
             step="1"
-            [value]="item.quantity"
-            (input)= "updateQuantity(item.id,$event.target.value)"
+            required
+            [(ngModel)]="item.quantity"
+            #name = "ngModel"
+            (input)= "updateQuantity(item.id,item.quantity)"
           />
         </div>
-
+        <div *ngIf="name.value <=0" class="alert alert-danger">
+          So luong ko duoc nho hon bang 0
+        </div>
         <div class="remove">
           <svg
             version="1.1"

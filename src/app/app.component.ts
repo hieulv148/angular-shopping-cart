@@ -28,10 +28,6 @@ export class AppComponent implements OnInit {
     this.productService.updateProduct(product);
     this.updateTotalAndSubTotal();
   }
-  checkPromotion(promoCode){
-    alert("Ban da nhap promocode:"+ promoCode);
-    this.productService.checkPromo(promoCode);
-  }
   updateTotalAndSubTotal() {
     this.totalItems = 0;
     this.subTotal = 0;
@@ -39,5 +35,11 @@ export class AppComponent implements OnInit {
       this.totalItems += item.quantity;
       this.subTotal += item.quantity * item.price;
     }
+  }
+  refreshShoppingCart() {
+    let proService = new ProductService;
+    this.productService.products = proService.products;
+    this.products = proService.products;
+    this.updateTotalAndSubTotal();
   }
 }
