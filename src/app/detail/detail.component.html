@@ -24,13 +24,11 @@
             step="1"
             required
             [(ngModel)]="item.quantity"
-            #name = "ngModel"
-            (input)= "updateQuantity(item.id,item.quantity)"
+            (input)= "updateQuantity(item.id,item.quantity); validate();"
+
           />
         </div>
-        <div *ngIf="name.value <=0" class="alert alert-danger">
-          So luong ko duoc nho hon bang 0
-        </div>
+
         <div class="remove">
           <svg
             version="1.1"

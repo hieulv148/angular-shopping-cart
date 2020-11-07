@@ -18,4 +18,11 @@ export class DetailComponent {
     let product = {"id": productId,"quantity": quantity};
     this.onInputQuantity.emit(product);
   }
+  validate() {
+    for (let item of this.products) {
+      if (item.quantity < 0) {
+        item.quantity = -item.quantity;
+      }
+    }
+  }
 }
